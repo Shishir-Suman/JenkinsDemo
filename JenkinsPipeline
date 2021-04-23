@@ -1,3 +1,5 @@
+def gv
+
 pipeline {
     agent any
     parameters {
@@ -10,6 +12,13 @@ pipeline {
         SAMPLE_CREDENTIALS = credentials("test-credentials")
     }
     stages {
+        stage('Init') {
+            steps {
+                script {
+                    gv = load 'script.groovy'
+                }
+            }
+        }
         stage('Hello') {
             steps {
                 echo 'Hello World'
