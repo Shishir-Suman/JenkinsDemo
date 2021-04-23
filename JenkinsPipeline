@@ -38,8 +38,8 @@ pipeline {
                     expression {
                         params.EXECUTE_RELEASE == true
                     }
+                    echo 'Releasing'
                 }
-                echo 'Releasing'
             }
         }
     }
