@@ -33,13 +33,13 @@ pipeline {
             }
         }
         stage('Release') {
-            steps {
-                when {
+            when {
                     expression {
                         params.EXECUTE_RELEASE == true
                     }
-                    echo 'Releasing'
-                }
+            }
+            steps {
+                echo 'Releasing'
             }
         }
     }
