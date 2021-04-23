@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         NEW_VERSION = '1.3.1'
-        SAMPLE_CREDENTIALS = credentials("test-credential")
+        SAMPLE_CREDENTIALS = credentials("test-credentials")
     }
     stages {
         stage('Hello') {
