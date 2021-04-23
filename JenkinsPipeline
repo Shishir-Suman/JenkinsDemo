@@ -34,9 +34,9 @@ pipeline {
         }
         stage('Release') {
             when {
-                    expression {
-                        params.EXECUTE_RELEASE == true
-                    }
+                expression {
+                    params.EXECUTE_RELEASE == true
+                }
             }
             steps {
                 echo 'Releasing'
