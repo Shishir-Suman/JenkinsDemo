@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         NEW_VERSION = '1.3.1'
+        SAMPLE_CREDENTIALS = credential("test-credential")
     }
     stages {
         stage('Hello') {
@@ -23,6 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
+                echo "${SAMPLE_CREDENTIALS}"
             }
         }
         stage('Release') {
