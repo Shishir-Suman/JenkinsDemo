@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    parameters {
+        String(name:'VERSION', defaultValue: '1.1.0', Description:'Pipeline version')
+        Choice(name:'IPADDRESS', choices:['10.0.0.1','10.1.1.1'], Description:'Server IP address')
+        BooleanParam(name:'EXECUTE_RELEASE', defaultValue:true, Description:'Run Release')
+    }
     environment {
         NEW_VERSION = '1.3.1'
         SAMPLE_CREDENTIALS = credentials("test-credentials")
@@ -29,6 +34,11 @@ pipeline {
         }
         stage('Release') {
             steps {
+                when {
+                    expression {
+                        params.EXECUTE_RELEASE == true
+                    }
+                }
                 echo 'Releasing'
             }
         }
